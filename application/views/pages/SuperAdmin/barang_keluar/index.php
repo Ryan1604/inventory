@@ -47,7 +47,13 @@ $this->load->view('dist/_partials/header', $data);
 												<td><?= $data->nama_barang ?></td>
 												<td><?= $data->jumlah ?></td>
 												<td><?= $newDate ?></td>
-												<td><?= $data->keterangan ?></td>
+												<td><?php
+													if ($data->keterangan == "Rusak") {
+														echo "Rusak";
+													} else {
+														echo "Pembuangan Barang Rusak";
+													}
+													?></td>
 												<td>
 													<a href="<?php echo base_url('superadmin/barang_keluar/edit/') . $data->id_keluar ?>" class="btn btn-success" title="Edit"><i class="fa fa-edit"></i> </a>
 													<a href="<?php echo base_url('superadmin/barang_keluar/delete/') . $data->id_keluar ?>" class="btn btn-danger" onclick="javascript: return confirm('Are you sure want to Delete ?')" title="Delete"><i class="fa fa-trash"></i></a>
